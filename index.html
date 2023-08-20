@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IP Address Display and Logger</title>
+</head>
+<body>
+    <h1>Your IP Address:</h1>
+    <p id="ip-address"></p>
+
+    <script>
+        // JavaScript code to fetch and display IP address
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                const ipAddress = data.ip;
+                document.getElementById('ip-address').textContent = ipAddress;
+
+                // Send IP address to the server using a simple image request
+                const img = new Image();
+                img.src = `log_ip.php?ip=${ipAddress}`;
+            })
+            .catch(error => {
+                console.error('Error fetching IP address:', error);
+            });
+    </script>
+</body>
+</html>
