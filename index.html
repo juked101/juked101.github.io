@@ -1,27 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>IP Address Display and Logger</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Ancient Texts Website</title>
+    <!-- Add your CSS links here -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Your IP Address:</h1>
-    <p id="ip-address"></p>
-
-    <script>
-        // JavaScript code to fetch and display IP address
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                const ipAddress = data.ip;
-                document.getElementById('ip-address').textContent = ipAddress;
-
-                // Send IP address to the server using a simple image request
-                const img = new Image();
-                img.src = `log_ip.php?ip=${ipAddress}`;
-            })
-            .catch(error => {
-                console.error('Error fetching IP address:', error);
-            });
-    </script>
+    <header>
+        <h1>Your Ancient Texts Library</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/texts">Texts</a></li>
+                <li><a href="/search">Search</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="text-display">
+            <h2>Text Title</h2>
+            <div class="text-content">
+                <!-- Display the text content here -->
+                <p>This is where your text content will go.</p>
+            </div>
+        </section>
+        
+        <section class="search-form">
+            <h2>Search Texts</h2>
+            <form action="/search" method="GET">
+                <input type="text" name="query" placeholder="Enter your search">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        
+        <!-- Add more sections for additional features -->
+        
+        <!-- Example section for annotations or translations -->
+        <section class="annotations">
+            <h2>Annotations and Translations</h2>
+            <div class="annotation-content">
+                <!-- Display annotations or translations here -->
+                <p>This is where annotations or translations can be shown.</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Your Ancient Texts Library</p>
+    </footer>
+    
+    <!-- Add your JavaScript scripts here -->
+    <script src="scripts.js"></script>
 </body>
 </html>
